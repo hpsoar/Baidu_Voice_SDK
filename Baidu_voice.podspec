@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 #
 
 s.name         = "Baidu_voice"
-s.version      = "1.0.0"
+s.version      = "1.0.1"
 s.summary      = "Baidu_voice 离线语音开发SDK"
 
 s.description  = <<-DESC
