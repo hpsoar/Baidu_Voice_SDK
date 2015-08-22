@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 #
 
 s.name         = "Baidu_voice"
-s.version      = "1.0.1"
+s.version      = "1.0.0"
 s.summary      = "Baidu_voice 离线语音开发SDK"
 
 s.description  = <<-DESC
@@ -80,7 +80,7 @@ s.platform     = :ios, "7.0"
 #
 
 s.source  = { :git => "https://github.com/heathcloud/Baidu_Voice_SDK.git", :tag => "1.0.0" }
-
+#s.source={:path => '/'}
 
 # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 #
@@ -90,7 +90,7 @@ s.source  = { :git => "https://github.com/heathcloud/Baidu_Voice_SDK.git", :tag 
 #  Not including the public_header_files will make all headers public.
 #
 
-s.source_files  = "BaiduVoice/Headers/*"
+s.source_files  = "Headers/*.h","Third-party/CoreAudioUtility/*","Third-party/TTTAttributedLabel/*"
 
 #s.exclude_files = "Classes/Exclude"
 
@@ -106,10 +106,10 @@ s.source_files  = "BaiduVoice/Headers/*"
 #
 
 # s.resource  = "icon.png"
-s.resources = "BaiduVoice/BDVoiceRecognitionClientResources/*"
-
-s.preserve_paths = "BaiduVoice/libBDVoiceRecognitionClient/libBDVoiceRecognitionClient.a"
-
+s.resources = "BDVoiceRecognitionClientResources/*"
+s.ios.vendored_library="libBDVoiceRecognitionClient/libBDVoiceRecognitionClient.a"
+s.preserve_paths = "libBDVoiceRecognitionClient/libBDVoiceRecognitionClient.a"
+s.vendored_libraries = "libBDVoiceRecognitionClient/libBDVoiceRecognitionClient.a"
 
 # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
 #
@@ -130,9 +130,9 @@ s.library   = "z.1.2.5"
 #  where they will only apply to your library. If you depend on other Podspecs
 #  you can include multiple dependencies to ensure it works.
 
-# s.requires_arc = true
+#s.requires_arc = true
 
-# s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
+ s.xcconfig = { "LIBRARY_SEARCH_PATHS" => "$(PODS_ROOT)/Baidu_voice/libBDVoiceRecognitionClient" }
 # s.dependency "JSONKit", "~> 1.4"
 
 end
